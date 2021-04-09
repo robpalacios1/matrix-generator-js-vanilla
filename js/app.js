@@ -7,18 +7,28 @@ let inputM = 0;
 
 //event click to refer a value into a input
 dataButton.addEventListener('click', () => {
+  let validateValue = new RegExp('^1[0-2]$|^[1-9]$');
   inputN = Number(document.querySelector('.js-input-n-row').value);
   inputM = Number(document.querySelector('.js-input-m-col').value);
-  arrayContainer.innerHTML = '';
+  if (validateValue.test(inputN) && validateValue.test(inputM)) {
 
-  // cicle for to obtain the value into an object
-  for (let i = 0; i < inputN; i++) {
-    myArray[i+1] = {};
-    for (let j = 0; j < inputM; j++) {
-      myArray[i+1][j+1] = 0;
+    arrayContainer.innerHTML = '';
+
+    // cicle for to obtain the value into an object
+    for (let i = 0; i < inputN; i++) {
+      myArray[i+1] = {};
+      for (let j = 0; j < inputM; j++) {
+        myArray[i+1][j+1] = 0;
+      }
     }
+    generateCol(inputN, inputM);
+
+  } else {
+    document.querySelector('.js-input-n-row').value = '';
+    document.querySelector('.js-input-m-col').value = '';
+    alert('únicamente valores del 1 al 12');
   }
-  generateCol(inputN, inputM);
+
 });
 
 //******Function to create a Col*******
@@ -80,7 +90,7 @@ function generateRow(row, col) {
   /* <div class="array__row"> */
   const arrayRow = document.createElement("div");
   arrayRow.className = "array__row";
-  
+
   for (let i = 0; i < col; i++) {
 
     /* input */
@@ -89,28 +99,27 @@ function generateRow(row, col) {
     input.type = "text";
     input.dataset.idrow = row + 1;
     input.dataset.idcol = i + 1;
-    
+
     arrayRow.appendChild(input)
 
     input.addEventListener('input', (e)=>{
       if (isInputNumber(e)) {
         changeRow = Number(e.target.dataset.idrow);
         changeCol = Number(e.target.dataset.idcol);
-  
+
         myArray[changeRow][changeCol] = Number(e.target.value);
-        console.log(myArray);
-  
+     
         let sumCol = 0;
         let sumRow = 0;
-  
+
         for (let i = 1; i <= inputM; i++ ) {
           sumCol += myArray[changeRow][i];
         }
-  
+
         for (let j = 1; j <= inputN; j++ ) {
           sumRow += myArray[j][changeCol];
         }
-  
+
         document.querySelector(`.js-span-n${changeRow}`).innerText = sumCol;
         document.querySelector(`.js-span-m${changeCol}`).innerText = sumRow;
       }
