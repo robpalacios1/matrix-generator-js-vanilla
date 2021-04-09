@@ -124,7 +124,7 @@ function generateRow(row, col) {
       for (let j = 1; j <= inputN; j++ ) {
         sumRow += myArray[j][changeCol];
       }
-      
+
       document.querySelector(`.js-span-n${changeRow}`).innerText = sumCol;
       document.querySelector(`.js-span-m${changeCol}`).innerText = sumRow;
 
