@@ -1,5 +1,7 @@
 # :gear: Array2d(Matrix) :gear:
 
+An application that receives N and M, and creates an array of inputs, that only receives whole numbers. 
+
 ## Resources
 * [Fonts](https://css-tricks.com/snippets/css/using-font-face/): [Web Fonts](https://drive.google.com/file/d/1xfE30WF5E-1YuJJ9owwn6E9PIXadzYSv/view?usp=sharing) + [Font Pack](https://fonts.google.com/specimen/Roboto?preview.text_type=custom)
 * [HTML Semantic elements](https://www.w3schools.com/html/html5_semantic_elements.asp)
@@ -12,7 +14,6 @@
 - The page must be built with valid HTML/CSS/Javascript.
 - CSS code should be as reusable and scalable as possible.
 - Use SCSS as much as possible. Do not use Bootstrap or any other CSS framework.
-- The page should adapt to the screen size and resolution of the device.
 
 ## General 
 - The code was worked with the BEM structure and the styling was done with SASS a CSS's processor.
